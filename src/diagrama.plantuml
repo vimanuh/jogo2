@@ -1,0 +1,66 @@
+@startuml Diagrama ControllerTela
+
+class App{
+    +static void main(String[] args)
+    +void start(Stage primaeryStage)
+}
+
+class ControllerTela{
+
++Button campo1
++Button campo2
++Button campo3
++Button campo4
++Button campo5
++Button campo6
++Button campo7
++Button campo8
++Button campo9
++Button novoJogo
++Label pontosO
++Label pontosX
++Button sair
++Label msg
+
++void Escolher(MouseEvent event)
++void novojogo(MouseEvent event)
++void zerar(MouseEvent event)
++void placar(String vencedor)
+
+}
+
+class Novojogo{
+    +vid novo(ControllerTela t)
+}
+
+class Placar{
+    -int pontosX
+    -int pontosO
+
+    +void incrementarPontosX()
+    +void incrementarPontosO()
+    +int getPontosX()
+    +int getPontosO()
+    +void zerarPontuacao()
+}
+
+class Jogador{
+    -String startGame
+
+    +void escolher(ControllerTela t)
+    +String getIniciar()
+}
+
+class Verificarpartida{
+    +String vencedor
+
+    +void verificar(ControllerTela t)
+}
+
+ControllerTela *--> Jogador
+ControllerTela *--> Novojogo
+ControllerTela *--> Verificarpartida
+ControllerTela <-- Placar
+App -- ControllerTela
+
+@enduml
